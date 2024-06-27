@@ -10,6 +10,7 @@ npm-debug.log*
 node_modules/
 dist/
 build/
+upload/
 
 # Tệp cấu hình môi trường
 .env
@@ -21,6 +22,7 @@ build/
 # Các tệp IDE
 .idea/
 .vscode/
+
 
 # Python
 __pycache__/
