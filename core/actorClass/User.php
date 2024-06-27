@@ -1,23 +1,22 @@
 <?php
     class User{
+        protected $user_id;
         protected $fullname;
         protected $email;
-        protected $password;
-        protected $username;
-        protected $phone;
-        protected $birth;
+        protected $gender;
 
         //constructor
-        public function __construct($fullname, $email, $password, $username, $phone, $birth){
+        public function __construct($fullname, $email, $gender){
+            $this->user_id = uniqid();
             $this->fullname = $fullname;
             $this->email = $email;
-            $this->password = $password;
-            $this->username = $username;
-            $this->phone = $phone;
-            $this->birth = $birth;
+            $this->gender = $gender;
         }
 
         //getters and setters
+        public function getUser_id(){
+            return $this->user_id;
+        }
 
         public function getFullname(){
             return $this->fullname;
@@ -35,39 +34,12 @@
             $this->email = $email;
         }
 
-        public function getPassword(){
-            return $this->password;
+        public function getGender(){
+            return $this->gender;
         }
 
-        public function setPassword($password){
-            $this->password = $password;
+        public function setGender($gender){
+            $this->gender = $gender;
         }
-
-        public function getUsername(){
-            return $this->username;
-        }
-
-        public function setUsername($username){
-            $this->username = $username;
-        }
-
-        public function getPhone(){
-            return $this->phone;
-        }
-
-        public function setPhone($phone){
-            $this->phone = $phone;
-        }   
-
-        public function getBirth(){
-            return $this->birth;
-        }
-
-        public function setBirth($birth){
-            $this->birth = $birth;
-        }
-
-    
-
     }
 ?>
