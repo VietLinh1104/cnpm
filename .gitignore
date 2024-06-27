@@ -1,0 +1,31 @@
+# Hệ điều hành
+.DS_Store
+Thumbs.db
+
+# Tệp nhật ký
+*.log
+npm-debug.log*
+
+# Các thư mục dự án
+node_modules/
+dist/
+build/
+
+# Tệp cấu hình môi trường
+.env
+
+# Tệp tạm thời
+*.tmp
+*.swp
+
+# Các tệp IDE
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.py[cod]
+venv/
+
+# Bỏ qua tệp ls.html
+ls.html

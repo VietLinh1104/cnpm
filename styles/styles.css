@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+/* body */
+body {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    background-color: #d9ecef;
+}
+
+
+
+/* Font */
+.font-family-jak{
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.fs-14 {
+    font-size: 14px;
+}
+
+.fs-16 {
+    font-size: 16px;
+}
+
+.fs-18 {
+    font-size: 18px;
+}
+
+.fs-24 {
+    font-size: 24px;
+}
+
+.fs-28 {
+    font-size: 28px;
+}
+
+.fs-32 {
+    font-size: 32px;
+}
+
+.fs-48 {
+    font-size: 48px;
+}
+
+.fs-64 {
+    font-size: 64px;
+}
+
+.font-thin {
+    font-weight: 100;
+}
+
+.font-thin-italic {
+    font-weight: 100;
+    font-style: italic;
+}
+
+.font-extralight {
+    font-weight: 200;
+}
+
+.font-extralight-italic {
+    font-weight: 200;
+    font-style: italic;
+}
+
+.font-light {
+    font-weight: 300;
+}
+
+.font-light-italic {
+    font-weight: 300;
+    font-style: italic;
+}
+
+.font-regular {
+    font-weight: 400;
+}
+
+.font-regular-italic {
+    font-weight: 400;
+    font-style: italic;
+}
+
+.font-medium {
+    font-weight: 500;
+}
+
+.font-medium-italic {
+    font-weight: 500;
+    font-style: italic;
+}
+
+.font-semibold {
+    font-weight: 600;
+}
+
+.font-semibold-italic {
+    font-weight: 600;
+    font-style: italic;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+.font-bold-italic {
+    font-weight: 700;
+    font-style: italic;
+}
+
+.font-extrabold {
+    font-weight: 800;
+}
+
+.font-extrabold-italic {
+    font-weight: 800;
+    font-style: italic;
+}
+
+.font-black {
+    font-weight: 900;
+}
+
+.font-black-italic {
+    font-weight: 900;
+    font-style: italic;
+}
+
+/* color */
+.text-white-trans{
+    color: rgba(255, 255, 255, 0.732);
+}
+
+.text-white-trans:hover a{
+    color: rgba(255, 255, 255, 0.391);
+}
+
+.border-primary-trans{
+    border-color: rgba(230, 32, 32, 0.512) !important;
+}
+
+.border-primary{
+    border-color: rgb(230, 32, 32) !important;
+}
+
+
+/* custom */
+.logo-size-1{
+    width: 245px;
+}
+
+.place-holder-n{
+    padding: 86.6715px;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0; /* Tùy chỉnh khoảng cách giữa dropdown và menu */
+}
+
+.bg-transparent-white {
+    background-color: rgba(255, 255, 255, 0.898);
+}
+
+
+.card {
+    width: 400px;
+    overflow: hidden; 
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 30px;
+}
+
+.image-container {
+    width: 100%;
+     /* Kích thước chiều cao của div */
+    border: 1px solid #ccc; /* Đường viền cho div */
+    overflow: hidden; /* Ẩn phần dư thừa của ảnh khi nó vượt ra ngoài div */
+}
+
+.image-container img {
+    width: 100%;
+    display: block; 
+}
+
+.item-img{
+    height: 500px;
+}
+
+.card:hover {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.zoom {
+    transition: transform 0.3s ease; /* Tạo hiệu ứng chuyển đổi mượt mà */ 
+}
+.card:hover .zoom {
+    transform: scale(1.05); /* Phóng to hình ảnh lên 1.2 lần khi hover */  
+}
+
+ul {
+    list-style-type: none; /* Đặt kiểu đánh số là số thập phân */
+    padding: 0; /* Xóa padding mặc định của danh sách */
+    margin: 0; /* Xóa margin mặc định của danh sách */
+
+    
+}
+li {
+    margin-bottom: 5px; /* Khoảng cách giữa các mục trong danh sách */
+}
+
+.sidebar ul a {
+    color: black;
+}
+
+.sidebar-border-right{
+    border-right: 1px solid #0000002f;
+}
+
+.nav-item .nav-item .nav-link{
+    color: #cf102D !important;
+}
+
+.nav-link:hover {
+    color:#cf102D !important;
+}
+
+a {
+    text-decoration: none; /* Bỏ gạch chân cho các liên kết */
+}
+
+.img-order{
+    width: 550px;
+}
+
+.navbar-main {
+    background-color: #cf102D;
+    margin-top: 41.97px;
+}
+
+.navbar-sec {
+    background-color: #cf102D;
+    margin-top: 131.343px;
+}
+
+.navbar-sec:hover {
+    background-color: #ffffff;
+    color:black;
+}
+
+.navbar-sec:hover .navbar-nav .nav-item .nav-link {
+    color: black !important;
+}
+
+.bg-primary{
+    background-color: #cf102D !important;
+}
+
+.bg-secondary {
+    background-color: #041675 !important;
+}
+
+.bg-light{
+    background-color: #f2f2f2 !important;
+}
+
+.btn-outline-primary{
+    padding-top:2px;
+    padding-bottom:2px;
+    border: 3.5px solid #cf102D;
+}
+
+.btn-outline-primary:hover{
+    border: 3.5px solid #cf102D !important;
+    background-color: #cf102D !important;
+    color:white;
+}
+
+.btn-outline-primary:hover p {
+    color:white !important;
+}
+
+.btn-outline-primary:active{
+    border: 3.5px solid #cf102D !important;
+    background-color: #cf102D !important;
+    color:white;
+}
+
+.text-primary{
+    color:#cf102D !important;
+}
+
+.text-secondary{
+    color:rgb(4, 22, 117)!important;
+}
+
+.text-gray{
+    color: #8f8f8f;
+}
+
+.btn-primary{
+    background-color: #cf102d !important;
+    border-color: #cf102d !important;
+}
+
+.btn-primary:hover{
+    background-color: #af0d26 !important;
+    border-color: #cf102dcd !important;
+}
