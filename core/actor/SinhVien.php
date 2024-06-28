@@ -1,4 +1,7 @@
 <?php
+    include_once($_SERVER['DOCUMENT_ROOT'].'/cnpm/app/config/path.php');
+    include(ROOT_PATH.CORE_PATH.'actor/User.php');
+
     class SinhVien extends User{
         private $maSV;
         private $GPA;
