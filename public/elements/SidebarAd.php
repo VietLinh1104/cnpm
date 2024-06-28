@@ -1,4 +1,4 @@
-<?php include_once($_SERVER['DOCUMENT_ROOT'].'/toy/app/config/path.php');?>
+<?php include_once($_SERVER['DOCUMENT_ROOT'].'/cnpm/app/config/path.php');?>
 
 <div id="sidebar" class="sidebar bg-white border-end">
     <nav class="navbar navbar-expand-lg navbar-white px-1 mb-2">
