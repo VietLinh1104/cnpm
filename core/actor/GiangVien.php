@@ -3,25 +3,25 @@
     include_once(ROOT_PATH.CORE_PATH.'actor/Users.php');
 
     class GiangVien extends Users{
-        private $maGV;
+        private $giangvien_id;
         private $chucvu;
         private $khoa;
 
         //constructor
-        public function __construct($fullname, $email, $password, $username, $phone, $birth, $maGV, $chucvu, $khoa){
+        public function __construct($fullname, $email, $password, $username, $phone, $birth, $giangvien_id, $chucvu, $khoa){
             parent::__construct($fullname, $email, $password, $username, $phone, $birth);
-            $this->maGV = $maGV;
+            $this->giangvien_id = $giangvien_id;
             $this->chucvu = $chucvu;
             $this->khoa = $khoa;
         }
 
         //getters and setters
         public function getMaGV(){
-            return $this->maGV;
+            return $this->giangvien_id;
         }
 
         public function setMaGV($maGV){
-            $this->maGV = $maGV;
+            $this->giangvien_id = $maGV;
         }
         
         public function getChucVu(){

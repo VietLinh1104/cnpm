@@ -3,20 +3,20 @@
     include_once(ROOT_PATH.CORE_PATH.'actor/Users.php');
 
     class SinhVien extends Users{
-        private $maSV;
+        private $sinhVien_id;
         private $GPA;
         public function __construct($maSV, $fullname, $gender, $email, $GPA) {
             parent::__construct($fullname, $gender, $email);
-            $this->maSV = $maSV;
+            $this->sinhVien_id = $maSV;
             $this->$GPA = $GPA;
         }
 
         public function getMaSV(){
-            return $this->maSV;
+            return $this->sinhVien_id;
         }
 
         public function setMaSV($maSV){
-            $this->maSV = $maSV;
+            $this->sinhVien_id = $maSV;
         }
 
         public function getGPA(){

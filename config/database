@@ -1,10 +1,12 @@
-CREATE TABLE produce(
-    id VARCHAR(225) PRIMARY KEY,
-    modelName VARCHAR(225),
-    brandName VARCHAR(225),
-    price INT,
-    category VARCHAR(225),
-    imgPath VARCHAR(225),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-)
+CREATE TABLE users(
+    user_id VARCHAR(225) PRIMARY KEY,
+    fullname VARCHAR(225),
+    email VARCHAR(225),
+    roleUser VARCHAR(225)
+);
+
+CREATE TABLE quanly(
+    quanLy_id VARCHAR(225) PRIMARY KEY,
+    user_id VARCHAR(225),
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);

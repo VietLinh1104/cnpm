@@ -52,6 +52,17 @@ class MySQL {
         }
     }
 
+    public function deleteData($table, $idField, $idValue) {
+        try {
+            $sql = "DELETE FROM $table WHERE $idField = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([$idValue]);
+            echo "Xóa dữ liệu thành công từ bảng $table.";
+        } catch(PDOException $e) {
+            echo "Lỗi khi xóa dữ liệu từ bảng $table: " . $e->getMessage();
+        }
+    }
+
 
     // Các phương thức khác để thực hiện các thao tác SQL khác có thể được thêm vào sau này
 
