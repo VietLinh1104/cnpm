@@ -8,4 +8,6 @@
     define('ELEMENTS_PATH', '/cnpm/app/public/elements/'); // 
     define('MEDIA_PATH', '/cnpm/app/public/media/'); // 
     define('STYLES_PATH', '/cnpm/app/public/styles/'); // 
+
+    include_once(ROOT_PATH.'/cnpm/app/config/import.php');
 ?>

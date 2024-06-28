@@ -25,10 +25,11 @@ class MySQL {
         }
     }
 
-    public function recordExists($table, $dbKey) {
+    public function recordExists($table,$nameField ,$valueField) {
         try {
-            $stmt = $this->conn->prepare("SELECT COUNT(*) FROM $table WHERE dbKey = :dbKey");
-            $stmt->bindParam(':dbKey', $dbKey);
+            $stmt = $this->conn->prepare("SELECT COUNT(*) FROM $table WHERE :nameField = :valueField");
+            $stmt->bindParam(':valueField', $valueField);
+            $stmt->bindParam(':nameField', $nameField);
             $stmt->execute();
             return $stmt->fetchColumn() > 0;
         } catch(PDOException $e) {
@@ -51,68 +52,6 @@ class MySQL {
         }
     }
 
-    public function updateData($table, $data, $dbKey) {
-        try {
-            $fields = '';
-            foreach ($data as $key => $value) {
-                $fields .= "$key = ?, ";
-            }
-            $fields = rtrim($fields, ', ');
-
-            $sql = "UPDATE $table SET $fields WHERE dbKey = ?";
-            $stmt = $this->conn->prepare($sql);
-
-            $values = array_values($data);
-            $values[] = $dbKey; // Append dbKey to the end of the array
-            $stmt->execute($values);
-        } catch(PDOException $e) {
-            echo "Update failed: " . $e->getMessage();
-        }
-    }
-
-    public function updateDataByField($table, $data, $field) {
-        try {
-            $fields = '';
-            foreach ($data as $key => $value) {
-                $fields .= "$key = ?, ";
-            }
-            $fields = rtrim($fields, ', ');
-    
-            $sql = "UPDATE $table SET $fields WHERE Ma_sinh_vien = ?";
-            $stmt = $this->conn->prepare($sql);
-    
-            $values = array_values($data);
-            $values[] = $field; // 
-            $stmt->execute($values);
-        } catch(PDOException $e) {
-            echo "Update failed: " . $e->getMessage();
-        }
-    }
-
-    public function getData($table, $fields = array('*')) {
-        try {
-            $fieldsStr = implode(', ', $fields);
-            $sql = "SELECT $fieldsStr FROM $table";
-            $stmt = $this->conn->prepare($sql);
-            $stmt->execute();
-            return $stmt->fetchAll(PDO::FETCH_ASSOC);
-        } catch(PDOException $e) {
-            echo "Error fetching data: " . $e->getMessage();
-        }
-    }
-
-    public function getDataByField($table, $fields_to_select, $field) {
-        try {
-            $fields = implode(', ', $fields_to_select);
-            $stmt = $this->conn->prepare("SELECT $fields FROM $table WHERE Ma_sinh_vien = :field");
-            $stmt->bindParam(':field', $field);
-            $stmt->execute();
-            return $stmt->fetchAll(PDO::FETCH_ASSOC);
-        } catch(PDOException $e) {
-            echo "Error getting data: " . $e->getMessage();
-            return null;
-        }
-    }
 
     // Các phương thức khác để thực hiện các thao tác SQL khác có thể được thêm vào sau này
 

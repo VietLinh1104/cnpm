@@ -1,8 +1,8 @@
 <?php
     include_once($_SERVER['DOCUMENT_ROOT'].'/cnpm/app/config/path.php');
-    include(ROOT_PATH.CORE_PATH.'actor/User.php');
+    include_once(ROOT_PATH.CORE_PATH.'actor/Users.php');
 
-    class GiangVien extends User{
+    class GiangVien extends Users{
         private $maGV;
         private $chucvu;
         private $khoa;
