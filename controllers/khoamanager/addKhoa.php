@@ -9,12 +9,19 @@
         $khoa = $_POST['khoa'];
         $maKhoa = $_POST['maKhoa'];
 
-        $usecase = new QuanLyKhoa($khoa,$maKhoa);
-        
-        $usecase->addKhoa();
+        if(IsAuthen::isAuthen()){
+            if($_SESSION['roleUser'] == 'QL'){
 
-        header('Location:'.PAGE_PATH.'admin/quanly/khoa');
-        exit();
+                $usecase = new QuanLyKhoa($khoa,$maKhoa);
+            
+                $usecase->addKhoa();
+        
+                header('Location:'.PAGE_PATH.'admin/quanly/khoa/listKhoa');
+                exit();
+            }
+        }
+
+        
     }
 
 

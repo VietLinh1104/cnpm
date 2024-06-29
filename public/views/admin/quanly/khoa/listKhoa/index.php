@@ -14,7 +14,7 @@
 </head>
 <body>
     <?php
-        include_once($_SERVER['DOCUMENT_ROOT'].'/cnpm/app/config/path.php');
+        include(ROOT_PATH.CORE_PATH.'MySQL.php');
         $importAuthen = new Import('authen');
 
         if(IsAuthen::isAuthen()){
@@ -80,23 +80,33 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                            <th scope="row">1</th>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                            <th scope="row">2</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            </tr>
-                                            <tr>
-                                            <th scope="row">3</th>
-                                            <td colspan="2">Larry the Bird</td>
-                                            <td>@twitter</td>
-                                            </tr>
+
+                                            <?php
+                                                include(ROOT_PATH. CONTROLLERS_PATH. 'khoamanager/getListKhoa.php');
+                                                $result = getListKhoa();
+
+                                                foreach ($result as $index => $row) {
+                                                    $khoa_id = $row['khoa_id'];
+                                                    $khoa = $row['khoa'];
+                                                    $maKhoa = $row['maKhoa'];
+
+                                                    echo '
+                                                    <tr>
+                                                        <th scope="row">'.$index.'</th>
+                                                        <td>'.$khoa_id.'</td>
+                                                        <td>'.$khoa.'</td>
+                                                        <td>'.$maKhoa.'</td>
+
+                                                    </tr>
+                                                    
+                                                    ';
+                                                }
+                                                
+                                            
+                                            ?>
+
+
+                                            
                                         </tbody>
                                         </table>
 
