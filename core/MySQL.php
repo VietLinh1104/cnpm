@@ -52,6 +52,21 @@ class MySQL {
         }
     }
 
+    public function getDataByField($table, $field, $value) {
+        try {
+            $sql = "SELECT * FROM $table WHERE $field = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([$value]);
+
+            // Lấy dữ liệu
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            return $result;
+        } catch(PDOException $e) {
+            throw new PDOException("Query failed: " . $e->getMessage());
+        }
+    }
+
     public function deleteData($table, $idField, $idValue) {
         try {
             $sql = "DELETE FROM $table WHERE $idField = ?";

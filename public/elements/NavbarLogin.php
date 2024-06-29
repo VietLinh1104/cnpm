@@ -9,5 +9,9 @@
             </div>
             
         </div>
+        <div class="act">
+            <button onclick="window.location.href = '<?php echo PAGE_PATH; ?>admin/login';" class="btn btn-gray" type="submit">Log In</button>
+            <button onclick="window.location.href = '<?php echo PAGE_PATH; ?>admin/register';" class="btn btn-gray" type="submit">Register</button>
+        </div>
     </div>
 </nav>

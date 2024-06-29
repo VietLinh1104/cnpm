@@ -21,6 +21,7 @@ class QuanLy extends Users {
 
     // add quanly
     public function addQuanLy() {
+        
         try {
             $this->addUsers(); // Gọi phương thức để thêm Users vào bảng 'users'
             
@@ -29,15 +30,17 @@ class QuanLy extends Users {
                 'quanLy_id' => $this->quanLy_id,
                 'user_id' => $this->getUser_id()
             ];
-
+        
             // Gọi phương thức insertData để chèn dữ liệu vào bảng 'quanly'
             $dbHandler = new MySQL(DB_HOST, DB_USER, DB_PASS, DB_NAME); // Thay thế các thông số kết nối tại đây
             $table = 'quanly';
             $dbHandler->insertData($table, $data);
             
-            echo "Thêm quản lý thành công!";
+            // Sử dụng JavaScript để ghi thông điệp vào bảng điều khiển của trình duyệt
+            echo "<script>console.log('[Core/Actor-User] Thêm quản lý thành công!');</script>";
         } catch (PDOException $e) {
-            echo "Lỗi khi thêm quản lý: " . $e->getMessage();
+            // Sử dụng JavaScript để ghi thông điệp lỗi vào bảng điều khiển của trình duyệt
+            echo "<script>console.error('[Core/Actor-User] Lỗi khi thêm quản lý: " . $e->getMessage() . "');</script>";
         }
     }
 

@@ -46,8 +46,8 @@
                             <div class="col-10 pb-0">
                                 
                                 <!-- form -->
-                                <form action="<?php echo MODEL_PATH?>registerProcesser.php" method="post" enctype="multipart/form-data">
-                                    <div class="row">
+                                <form action="<?php echo MODEL_PATH?>loginProcesser.php" method="post" enctype="multipart/form-data">
+                                    <div class="row mb-3">
                                         <div class="col">
                                             <label for="username" class="font-semibold- fs-16">Username</label>
                                             <input type="text" id="username" name ="username"  placeholder="Your Username" class="form-control px-10px mb-10px">
@@ -59,21 +59,7 @@
                                         </div>
                                     </div>
 
-                                    <!--  -->
-
-                                    <div class="row">
-                                        <div class="col">
-                                            <label for="fullname" class="font-semibold- fs-16">Fullname</label>
-                                            <input type="text" id="fullname" name ="fullname"  placeholder="Your Fullname" class="form-control px-10px mb-10px ">
-                                        </div>
-
-                                        <div class="col">
-                                            <label for="email" class="font-semibold- fs-16">Email</label>
-                                            <input type="email" id="email" name ="email"  placeholder="Email" class="form-control px-10px mb-10px ">
-                                        </div>
-
-                                    </div>
-
+                                
                                     <!--  -->
                                 
                                     <div class="container bg-white border-top m-0 pt-1">
@@ -81,7 +67,7 @@
                                             <div class="col d-flex justify-content-end">
                                               <!-- Thẻ div chứa button và được căn phải -->
                                               <div>
-                                                  <button class="btn btn-gray" type="submit">Register</button>
+                                                  <button class="btn btn-gray" type="submit">Login</button>
                                                 
                                               </div>
                                             </div>

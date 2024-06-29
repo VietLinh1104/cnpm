@@ -4,7 +4,7 @@
     <nav class="navbar navbar-expand-lg navbar-white px-1 mb-2">
         <div class="container-fluid p-0">
             <a href="#" class="navbar-brand m-0 d-flex align-items-center">
-                <img src="<?php echo MEDIA_PATH?>logo.svg" style="width: 180px" alt="logo">
+                <img src="" style="width: 180px" alt="logo">
             </a> 
         </div>
         
