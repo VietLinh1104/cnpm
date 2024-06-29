@@ -4,10 +4,11 @@ include_once(ROOT_PATH.CORE_PATH.'actor/Users.php');
 
 class QuanLy extends Users {
     private $quanLy_id;
+    private $ROLE = 'QL';
 
-    public function __construct($fullname, $email) {
-        parent::__construct($fullname, 'QL', $email); // Gọi constructor của lớp cha để khởi tạo
-        $this->quanLy_id = 'QL' . $this->getUser_id(); // Sử dụng phương thức từ lớp cha để lấy user_id
+    public function __construct($fullname, $username, $hashPassword, $email) {
+        parent::__construct($fullname,  $username, $hashPassword, $email, $this->ROLE); // Gọi constructor của lớp cha để khởi tạo
+        $this->quanLy_id = $this->ROLE . $this->getUser_id(); // Sử dụng phương thức từ lớp cha để lấy user_id
     }
 
     public function getQuanLy_id() {
@@ -40,10 +41,6 @@ class QuanLy extends Users {
         }
     }
 
+    
 }
-
-$obj = new QuanLy("Viet Linh", "vlmmonkey620@gmail.com");
-$obj->addQuanLy();
-
-
 ?>

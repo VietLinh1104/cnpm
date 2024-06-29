@@ -1,6 +1,8 @@
 CREATE TABLE users(
     user_id VARCHAR(225) PRIMARY KEY,
     fullname VARCHAR(225),
+    username VARCHAR(225),
+    hashPassword VARCHAR(225),
     email VARCHAR(225),
     roleUser VARCHAR(225)
 );

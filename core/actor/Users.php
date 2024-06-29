@@ -6,15 +6,22 @@
     class Users {
         protected $user_id;
         protected $fullname;
+        protected $username;
+        protected $hashPassword;
         protected $email;
-        protected $role;
+        protected $roleUser;
+
+        
+        
 
         // Constructor
-        public function __construct($fullname, $email, $role) {
+        public function __construct($fullname, $username,$hashPassword,$email, $roleUser) {
             $this->user_id = uniqid();
             $this->fullname = $fullname;
+            $this->username = $username;
+            $this->hashPassword = $hashPassword;
             $this->email = $email;
-            $this->role = $role;
+            $this->roleUser = $roleUser;
         }
 
         // Getters and setters
@@ -38,22 +45,32 @@
             $this->email = $email;
         }
 
-        public function getRole() {
-            return $this->role;
+        public function getRoleUser() {
+            return $this->roleUser;
         }
 
-        public function setRole($role) {
-            $this->role = $role;
+        public function setRoleUser($roleUser) {
+            $this->roleUser = $roleUser;
+        }
+
+        public function getUsername() {
+            return $this->username;
+        }
+
+        public function setUsername($username) {
+            $this->username = $username;
         }
 
         public function addUsers() {
             try {
                 // Chuẩn bị dữ liệu cần chèn vào bảng 'users'
                 $data = [
-                    'user_id' => $this->getUser_id(), // Lấy user_id từ lớp cha
-                    'fullname' => $this->getFullname(),
-                    'email' => $this->getEmail(),
-                    'roleUser' => $this->getRole() // hoặc 'QL' nếu bạn muốn chuyển trực tiếp.
+                    'user_id' => $this->user_id, 
+                    'fullname' => $this->fullname,
+                    'username' => $this->username,
+                    'hashPassword' => $this->hashPassword,
+                    'email' => $this->email,
+                    'roleUser' => $this->roleUser
                 ];
         
                 // Gọi phương thức insertData để chèn dữ liệu vào bảng 'users'

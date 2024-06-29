@@ -40,22 +40,22 @@
                         <div class="row">
 
                             <div class="col pe-2">
-                                <h5 class="font-family-poppins font-semibold- fs-16">Form</h5>
-                                <p class="text-gray-light fs-14">Thêm thông tin sản phẩm.</p>
+                                <h5 class="font-family-poppins font-semibold- fs-16">REGISTER</h5>
+                                <p class="text-gray-light fs-14">Đăng ký tài khoản.</p>
                             </div>
                             <div class="col-10 pb-0">
                                 
                                 <!-- form -->
-                                <form action="<?php echo PROCESSING_PATH?>addItemProcesser.php" method="post" enctype="multipart/form-data">
+                                <form action="<?php echo MODEL_PATH?>registerProcesser.php" method="post" enctype="multipart/form-data">
                                     <div class="row">
                                         <div class="col">
-                                            <label for="modelName" class="font-semibold- fs-16">Tên Sản Phẩm</label>
-                                            <input type="text" id="modelName" name ="modelName"  placeholder="Tên Sản Phẩm" class="form-control px-10px mb-10px">
+                                            <label for="username" class="font-semibold- fs-16">Username</label>
+                                            <input type="text" id="username" name ="username"  placeholder="Your Username" class="form-control px-10px mb-10px">
                                         </div>
 
                                         <div class="col">
-                                            <label for="brandName" class="font-semibold- fs-16">Tên Hãng</label>
-                                            <input type="text" id="brandName" name ="brandName"  placeholder="Tên Hãng" class="form-control px-10px mb-10px">
+                                            <label for="password" class="font-semibold- fs-16">Password</label>
+                                            <input type="password" id="password" name ="password"  placeholder="Your Password" class="form-control px-10px mb-10px">
                                         </div>
                                     </div>
 
@@ -63,36 +63,25 @@
 
                                     <div class="row">
                                         <div class="col">
-                                            <label for="price" class="font-semibold- fs-16">Giá Bán</label>
-                                            <input type="number" id="price" name ="price"  placeholder="Giá Bán" class="form-control px-10px mb-10px ">
-
+                                            <label for="fullname" class="font-semibold- fs-16">Fullname</label>
+                                            <input type="text" id="fullname" name ="fullname"  placeholder="Your Fullname" class="form-control px-10px mb-10px ">
                                         </div>
 
                                         <div class="col">
-                                            <label for="category" class="font-semibold- fs-16">Danh Mục</label>
-                                            <select class="form-select" name="category"  aria-label="Default select example" id="category">
-                                                <option value="">Chọn Danh Mục</option>
-                                                <option value="Siêu anh hùng">Siêu anh hùng</option>
-                                                <option value="Kẹo đồ chơi">Kẹo đồ chơi</option>
-                                                <option value="Đồ chơi lắp ghép">Đồ chơi lắp ghép</option>
-                                                <option value="Đồ chơi sáng tạo">Đồ chơi sáng tạo</option>
-                                            </select>
-
+                                            <label for="email" class="font-semibold- fs-16">Email</label>
+                                            <input type="email" id="email" name ="email"  placeholder="Email" class="form-control px-10px mb-10px ">
                                         </div>
 
                                     </div>
 
                                     <!--  -->
-                                    
-                                    <label for="img-produce" class="font-semibold- fs-16">Ảnh Sản Phẩm:</label>
-                                    <input type="file" id="img-produce"  name="img-produce" class="form-control px-10px mb-10px w-50">
-                                    
+                                
                                     <div class="container bg-white border-top m-0 pt-1">
                                         <div class="row">
                                             <div class="col d-flex justify-content-end">
                                               <!-- Thẻ div chứa button và được căn phải -->
                                               <div>
-                                                  <button class="btn btn-gray" type="submit">Add Item</button>
+                                                  <button class="btn btn-gray" type="submit">Register</button>
                                                 
                                               </div>
                                             </div>
