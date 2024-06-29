@@ -7,7 +7,7 @@
             
         </div>
         <div class="act">
-         <button onclick="window.location.href = '<?php echo MODEL_PATH; ?>logoutProcesser.php';" class="btn btn-gray" type="submit">Log Out</button>
+         <button onclick="window.location.href = '<?php echo CONTROLLERS_PATH; ?>logoutProcesser.php';" class="btn btn-gray" type="submit">Log Out</button>
 
         </div>
     </div>

@@ -37,10 +37,10 @@ class QuanLy extends Users {
             $dbHandler->insertData($table, $data);
             
             // Sử dụng JavaScript để ghi thông điệp vào bảng điều khiển của trình duyệt
-            echo "<script>console.log('[Core/Actor-User] Thêm quản lý thành công!');</script>";
+            echo "<script>console.log('[Core/Actor-QuanLy] Thêm quản lý thành công!');</script>";
         } catch (PDOException $e) {
             // Sử dụng JavaScript để ghi thông điệp lỗi vào bảng điều khiển của trình duyệt
-            echo "<script>console.error('[Core/Actor-User] Lỗi khi thêm quản lý: " . $e->getMessage() . "');</script>";
+            echo "<script>console.error('[Core/Actor-QuanLy] Lỗi khi thêm quản lý: " . $e->getMessage() . "');</script>";
         }
     }
 

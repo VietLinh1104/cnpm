@@ -12,3 +12,18 @@ CREATE TABLE quanly(
     user_id VARCHAR(225),
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
+
+CREATE TABLE giangvien(
+    giangvien_id VARCHAR(225) PRIMARY KEY,
+    user_id VARCHAR(225),
+    chucVu VARCHAR(225),
+    khoa VARCHAR(225),
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
+CREATE TABLE khoa(
+    khoa_id VARCHAR(225) PRIMARY KEY,
+    khoa VARCHAR(225),
+    maKhoa VARCHAR(10)
+);
+

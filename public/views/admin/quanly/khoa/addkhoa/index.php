@@ -13,8 +13,24 @@
     <link rel="icon" type="image/png" href="<?php echo MEDIA_PATH?>favicon.png">
 </head>
 <body>
+    <?php
+        include_once($_SERVER['DOCUMENT_ROOT'].'/cnpm/app/config/path.php');
+        $importAuthen = new Import('authen');
+
+        if(IsAuthen::isAuthen()){
+            $role = $_SESSION['roleUser'];
+            if($role == 'QL'){
+                //pass
+            }else{
+                header("Location: /cnpm/app/public/views/admin/access");
+            }
+
+        }else{
+            header("Location: /cnpm/app/public/views/admin/home");
+        }
+    ?>
+
     
-        
     <div class="d-flex">
         <!-- sidebar -->
         <?php include(ROOT_PATH. ELEMENTS_PATH."SidebarAd.php")?>
@@ -27,65 +43,55 @@
             <!-- container -->
             <div class="container-lg">
                 <h1 class="mt-2 mb-0 font-bold- font-family-condensed">MANAGER</h1>
-                <p class="font-semibold- font-family-poppins mb-2">Add Item</p>
+                <p class="font-semibold- font-family-poppins mb-2">Trang quản lý</p>
                 
 
                 <div class="container-fluid me-4 border rounded p-1">
                     <div class="bg-white border-bottom m-0 pb-1">
-                        <h4 class="m-0 font-family-poppins font-bold-">ADD ITEM </h4>
-                        <p class="text-gray-light fs-14 m-0">Phần thêm sản phẩm.</p>
+                        <h4 class="m-0 font-family-poppins font-bold-">Quản lý khoa </h4>
+                        <p class="text-gray-light fs-14 m-0">Thêm khoa</p>
                     </div>
                     
                     <div class="container-fruid pt-1">
                         <div class="row">
 
                             <div class="col pe-2">
-                                <h5 class="font-family-poppins font-semibold- fs-16">REGISTER</h5>
-                                <p class="text-gray-light fs-14">Đăng ký tài khoản.</p>
+                                <h5 class="font-family-poppins font-semibold- fs-16"></h5>
+                                <p class="text-gray-light fs-14">Form thêm khoa.</p>
                             </div>
                             <div class="col-10 pb-0">
                                 
                                 <!-- form -->
-                                <?php
-                                    
-                                    // session_start(); // Bắt đầu session
-                                    if(isset($_SESSION['user_id']) && $_SESSION['user_id']){
-                                        // Người dùng đã đăng nhập
-                                        $user_id = $_SESSION['user_id'];
-                                        echo"session user_id: ". $user_id;
-                                        
+                                <form action="<?php echo CONTROLLERS_PATH?>khoaManager.php" method="post" enctype="multipart/form-data">
+                                    <div class="row mb-2">
+                                        <div class="col">
+                                            <label for="khoa" class="font-semibold- fs-16">Tên Khoa</label>
+                                            <input type="text" id="khoa" name ="khoa"  placeholder="Tên khoa" class="form-control px-10px mb-10px">
+                                        </div>
 
-                                    }else{
-                                        header("Location: /cnpm/app/public/views/admin/login");
-                                        
-                                    }
-                                    
-
-                                ?>
-                                
-                                <div class="row mb-3">
-                                    <div class="col">
-                                        <label for="username" class="font-semibold- fs-16">Username</label>
-                                        
+                                        <div class="col">
+                                            <label for="maKhoa" class="font-semibold- fs-16">Mã Khoa</label>
+                                            <input type="text" id="maKhoa" name ="maKhoa"  placeholder="Mã khoa" class="form-control px-10px mb-10px">
+                                        </div>
                                     </div>
-                                </div>
 
-                            
-                                <!--  -->
-                            
-                                <div class="container bg-white border-top m-0 pt-1">
-                                    <div class="row">
-                                        <div class="col d-flex justify-content-end">
-                                            <!-- Thẻ div chứa button và được căn phải -->
-                                            <div>
-                                                <button class="btn btn-gray" type="submit">Login</button>
-                                            
-                                            </div>
-                                        </div>
-                                        </div>
-                                </div>
-                                    
+                                    <!--  -->
+
+                                    <!--  -->
                                 
+                                    <div class="container bg-white border-top m-0 pt-1">
+                                        <div class="row">
+                                            <div class="col d-flex justify-content-end">
+                                              <!-- Thẻ div chứa button và được căn phải -->
+                                              <div>
+                                                  <button class="btn btn-gray" type="submit">Thêm Khoa</button>
+                                                
+                                              </div>
+                                            </div>
+                                          </div>
+                                    </div>
+                                    
+                                </form>
                                 <!-- form -->
                                 
                             </div>

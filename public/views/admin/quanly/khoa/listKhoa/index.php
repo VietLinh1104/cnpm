@@ -18,6 +18,14 @@
         $importAuthen = new Import('authen');
 
         if(IsAuthen::isAuthen()){
+            $role = $_SESSION['roleUser'];
+            if($role == 'QL'){
+                //pass
+            }else{
+                header("Location: /cnpm/app/public/views/admin/access");
+            }
+
+        }else{
             header("Location: /cnpm/app/public/views/admin/home");
         }
     ?>
@@ -35,39 +43,67 @@
             <!-- container -->
             <div class="container-lg">
                 <h1 class="mt-2 mb-0 font-bold- font-family-condensed">MANAGER</h1>
-                <p class="font-semibold- font-family-poppins mb-2">Add Item</p>
+                <p class="font-semibold- font-family-poppins mb-2">Trang quản lý</p>
                 
 
                 <div class="container-fluid me-4 border rounded p-1">
-                    <div class="bg-white border-bottom m-0 pb-1">
-                        <h4 class="m-0 font-family-poppins font-bold-">ADD ITEM </h4>
-                        <p class="text-gray-light fs-14 m-0">Phần thêm sản phẩm.</p>
+                    <div class=" row bg-white border-bottom m-0 pb-1">
+                        <div class="col">
+                            <h4 class="m-0 font-family-poppins font-bold-">Quản lý khoa </h4>
+                            <p class="text-gray-light fs-14 m-0">Danh sách khoa</p>
+                        </div>
+                        <div class="col d-flex justify-content-end">
+                            <img src="<?php echo MEDIA_PATH; ?>add-btn.svg" alt="" style="width: 33px;" onclick="window.location.href='<?php echo PAGE_PATH; ?>admin/quanly/khoa/addkhoa';">
+                        </div>
                     </div>
                     
                     <div class="container-fruid pt-1">
                         <div class="row">
 
                             <div class="col pe-2">
-                                <h5 class="font-family-poppins font-semibold- fs-16">REGISTER</h5>
-                                <p class="text-gray-light fs-14">Đăng ký tài khoản.</p>
+                                <h5 class="font-family-poppins font-semibold- fs-16"></h5>
+                                <p class="text-gray-light fs-14">Bảng danh sách</p>
                             </div>
                             <div class="col-10 pb-0">
                                 
                                 <!-- form -->
-                                <form action="<?php echo CONTROLLERS_PATH?>loginProcesser.php" method="post" enctype="multipart/form-data">
-                                    <div class="row mb-3">
-                                        <div class="col">
-                                            <label for="username" class="font-semibold- fs-16">Username</label>
-                                            <input type="text" id="username" name ="username"  placeholder="Your Username" class="form-control px-10px mb-10px">
-                                        </div>
+                                <form action="<?php echo CONTROLLERS_PATH?>khoaManager.php" method="post" enctype="multipart/form-data">
+                                    <div class="row mb-2">
+                                        
+                                    <table class="table me-2">
+                                        <thead>
+                                            <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">First</th>
+                                            <th scope="col">Last</th>
+                                            <th scope="col">Handle</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                            <th scope="row">1</th>
+                                            <td>Mark</td>
+                                            <td>Otto</td>
+                                            <td>@mdo</td>
+                                            </tr>
+                                            <tr>
+                                            <th scope="row">2</th>
+                                            <td>Jacob</td>
+                                            <td>Thornton</td>
+                                            <td>@fat</td>
+                                            </tr>
+                                            <tr>
+                                            <th scope="row">3</th>
+                                            <td colspan="2">Larry the Bird</td>
+                                            <td>@twitter</td>
+                                            </tr>
+                                        </tbody>
+                                        </table>
 
-                                        <div class="col">
-                                            <label for="password" class="font-semibold- fs-16">Password</label>
-                                            <input type="password" id="password" name ="password"  placeholder="Your Password" class="form-control px-10px mb-10px">
-                                        </div>
                                     </div>
 
-                                
+                                    <!--  -->
+
                                     <!--  -->
                                 
                                     <div class="container bg-white border-top m-0 pt-1">
@@ -75,7 +111,7 @@
                                             <div class="col d-flex justify-content-end">
                                               <!-- Thẻ div chứa button và được căn phải -->
                                               <div>
-                                                  <button class="btn btn-gray" type="submit">Login</button>
+                                                  <button class="btn btn-gray" type="submit">Thêm Khoa</button>
                                                 
                                               </div>
                                             </div>

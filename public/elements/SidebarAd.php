@@ -1,4 +1,7 @@
-<?php include_once($_SERVER['DOCUMENT_ROOT'].'/cnpm/app/config/path.php');?>
+<?php include_once($_SERVER['DOCUMENT_ROOT'].'/cnpm/app/config/path.php');
+    $importAuthen = new Import('authen');
+
+?>
 
 <div id="sidebar" class="sidebar bg-white border-end">
     <nav class="navbar navbar-expand-lg navbar-white px-1 mb-2">
@@ -11,10 +14,40 @@
     </nav>
 
     <label for="listGroup" class="fs-14 font-normal- font-family-poppins text-gray-light ms-1 mb-10px">Main Menu</label>
-    <div class="list-group list-group-flush" id="listGroup">
-        <a href="<?php echo PAGE_PATH?>admin/add-item/" class="list-group-item  list-group-item-action px-10px mx-1">Add Item</a>
-    </div>
-    <div class="list-group list-group-flush" id="listGroup">
-        <a href="<?php echo PAGE_PATH?>admin/list-item/" class="list-group-item  list-group-item-action px-10px mx-1">List Item</a>
-    </div>
+
+    <?php
+
+        if(IsAuthen::isAuthen()){    
+            $role = $_SESSION['roleUser'];
+            switch ($role) {
+                case "QL":
+                    $list = array('Trang chủ'=>'home','Quản lý khoa'=>'quanly/khoa/listkhoa', 'Quản lý lớp'=>'lopManager', 'Quản lý môn học'=>'monManeger');
+                  break;
+                case "GV":
+                    $list = array('Trang chủ'=>'home','Điểm danh'=>'diemDanh', 'Đánh giá rèn luyện'=>'renluyen', 'Quản lý sinh viên'=>'svManager');
+                  break;
+                case "SV":
+                    $list = array('Trang chủ'=>'home','Cập nhật thông tin'=>'updateInfo', 'Đăng ký môn học'=>'dangkyMon', 'Xem điểm'=>'diemSV');
+                  break;
+                default:
+                    $list = array('Trang Chủ'=>'home');
+              }
+
+        }else{
+            $list = array('Trang Chủ'=>'home');
+        }
+
+        foreach ($list as $value => $path) {
+            echo'
+                <div class="list-group list-group-flush" id="listGroup">
+                    <a href="'.PAGE_PATH.'admin/'.$path.'" class="list-group-item  list-group-item-action px-10px mx-1">'.$value.'</a>
+                </div>
+            ';
+        }
+
+    ?>
+
+
+    
+
 </div>

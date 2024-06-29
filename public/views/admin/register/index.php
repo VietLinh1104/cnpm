@@ -54,7 +54,7 @@
                             <div class="col-10 pb-0">
                                 
                                 <!-- form -->
-                                <form action="<?php echo MODEL_PATH?>registerProcesser.php" method="post" enctype="multipart/form-data">
+                                <form action="<?php echo CONTROLLERS_PATH?>registerProcesser.php" method="post" enctype="multipart/form-data">
                                     <div class="row">
                                         <div class="col">
                                             <label for="username" class="font-semibold- fs-16">Username</label>

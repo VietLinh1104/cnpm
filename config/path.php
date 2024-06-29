@@ -2,7 +2,7 @@
     define('ROOT_PATH', $_SERVER['DOCUMENT_ROOT']); // 
     define('PROCESSING_PATH', '/cnpm/app/processing/'); // 
     define('CORE_PATH', '/cnpm/app/core/'); //
-    define('MODEL_PATH', '/cnpm/app/model/'); //
+    define('CONTROLLERS_PATH', '/cnpm/app/controllers/'); //
     define('UPLOAD_PATH', '/cnpm/app/processing/upload/'); // 
     
     define('PAGE_PATH', '/cnpm/app/public/views/'); // 
