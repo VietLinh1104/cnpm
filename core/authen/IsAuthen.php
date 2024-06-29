@@ -7,7 +7,11 @@
         
         public static function isAuthen(){
             $dbHandler = new MySQL(DB_HOST, DB_USER, DB_PASS, DB_NAME);            
-            session_start(); // Bắt đầu session
+            
+            if (session_status() == PHP_SESSION_NONE) {
+                session_start(); // Bắt đầu session nếu chưa khởi tạo
+            }
+
             if(isset($_SESSION['user_id']) && $_SESSION['user_id']){
                 
                 $user_id = $_SESSION['user_id'];
@@ -34,6 +38,8 @@
                 return FALSE;
             }
         }
+
+        
 
     }
 

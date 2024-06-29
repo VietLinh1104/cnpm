@@ -13,6 +13,14 @@
     <link rel="icon" type="image/png" href="<?php echo MEDIA_PATH?>favicon.png">
 </head>
 <body>
+    <?php
+        include_once($_SERVER['DOCUMENT_ROOT'].'/cnpm/app/config/path.php');
+        $importAuthen = new Import('authen');
+
+        if(IsAuthen::isAuthen()){
+            header("Location: /cnpm/app/public/views/admin/home");
+        }
+    ?>
 
     
     <div class="d-flex">
