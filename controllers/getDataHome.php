@@ -5,37 +5,25 @@
     $importAc = new Import('usecase');
     $importAuthen = new Import('authen');
 
-    function getListKhoa(){
+    function getDataHome(){
         if(IsAuthen::isAuthen()){
             if($_SESSION['roleUser'] == 'QL'){
                 $dbHandler = new MySQL(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-                $table = 'khoa';
+                $table = 'users';
     
                 $result = $dbHandler->getAllData($table);
-    
-                foreach ($result as $row) {
-                    $rowData = [];
-                    foreach ($row as $column => $value) {
-                        $rowData[$column] = $value;
+
+
+                if (!empty($result)) {
+                    foreach ($result as $row) {
+                        return $row['fullname'] ;
                     }
-                    $twoDimensionalArray[] = $rowData;
+                } else {
+                    echo 'Không tìm thấy dữ liệu phù hợp.';
                 }
-                
-                // Hiển thị mảng hai chiều
-                
-                return $twoDimensionalArray;
-                
-                
-                
+
             }
         }
 
     }
-
-
-        
-    
-
-
-
 ?>

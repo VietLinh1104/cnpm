@@ -8,7 +8,7 @@
         public function __construct($khoa,$maKhoa) {
             $this->khoa = $khoa;
             $this->maKhoa = $maKhoa;
-            $this->khoa_id = 'KH'.uniqid();
+            $this->khoa_id = 'KH'.$maKhoa.uniqid();
         }
 
         public function getKhoa(){

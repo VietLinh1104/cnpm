@@ -27,46 +27,38 @@
             <!-- container -->
             <div class="container-lg">
                 <h1 class="mt-2 mb-0 font-bold- font-family-condensed">MANAGER</h1>
-                <p class="font-semibold- font-family-poppins mb-2">Add Item</p>
+                <p class="font-semibold- font-family-poppins mb-2">Trang quản lý</p>
                 
 
                 <div class="container-fluid me-4 border rounded p-1">
                     <div class="bg-white border-bottom m-0 pb-1">
-                        <h4 class="m-0 font-family-poppins font-bold-">ADD ITEM </h4>
-                        <p class="text-gray-light fs-14 m-0">Phần thêm sản phẩm.</p>
+                        <h4 class="m-0 font-family-poppins font-bold-">Home </h4>
+                        <p class="text-gray-light fs-14 m-0">Trang chủ.</p>
                     </div>
                     
                     <div class="container-fruid pt-1">
                         <div class="row">
 
                             <div class="col pe-2">
-                                <h5 class="font-family-poppins font-semibold- fs-16">REGISTER</h5>
-                                <p class="text-gray-light fs-14">Đăng ký tài khoản.</p>
+                                <h5 class="font-family-poppins font-semibold- fs-16">HOME</h5>
+                                <p class="text-gray-light fs-14">Trang Chủ.</p>
                             </div>
                             <div class="col-10 pb-0">
                                 
                                 <!-- form -->
                                 <?php
                                     
-                                    // session_start(); // Bắt đầu session
-                                    if(isset($_SESSION['user_id']) && $_SESSION['user_id']){
-                                        // Người dùng đã đăng nhập
-                                        $user_id = $_SESSION['user_id'];
-                                        echo"session user_id: ". $user_id;
-                                        
+                                include(ROOT_PATH . CONTROLLERS_PATH.'getDataHome.php');
 
-                                    }else{
-                                        header("Location: /cnpm/app/public/views/admin/login");
-                                        
-                                    }
-                                    
+                                $data = getDataHome();
+                                
 
                                 ?>
                                 
                                 <div class="row mb-3">
                                     <div class="col">
-                                        <label for="username" class="font-semibold- fs-16">Username</label>
-                                        
+                                        <label for="name" class="font-family-poppins">Account :</label>
+                                        <h3 id="name" class="font-family-poppins font-bold-"><?php echo 'Hi '.ucwords($data).' !'; ?></h3>
                                     </div>
                                 </div>
 
@@ -78,7 +70,7 @@
                                         <div class="col d-flex justify-content-end">
                                             <!-- Thẻ div chứa button và được căn phải -->
                                             <div>
-                                                <button class="btn btn-gray" type="submit">Login</button>
+                                                <button class="btn btn-gray" type="submit">Setting Account</button>
                                             
                                             </div>
                                         </div>

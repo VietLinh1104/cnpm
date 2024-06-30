@@ -27,3 +27,12 @@ CREATE TABLE khoa(
     maKhoa VARCHAR(10)
 );
 
+CREATE TABLE lop(
+    lop_id VARCHAR(225) PRIMARY KEY,
+    lop VARCHAR(225),
+    maLop VARCHAR(10),
+    maKhoa VARCHAR(10),
+    tenLop VARCHAR(20),
+    FOREIGN KEY (maKhoa) REFERENCES khoa(maKhoa)
+);
+

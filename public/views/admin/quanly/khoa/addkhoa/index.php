@@ -62,7 +62,7 @@
                             <div class="col-10 pb-0">
                                 
                                 <!-- form -->
-                                <form action="<?php echo CONTROLLERS_PATH?>khoamanager/addKhoa.php" method="post" enctype="multipart/form-data">
+                                <form action="<?php echo CONTROLLERS_PATH?>quanly/khoamanager/addKhoa.php" method="post" enctype="multipart/form-data">
                                     <div class="row mb-2">
                                         <div class="col">
                                             <label for="khoa" class="font-semibold- fs-16">Tên Khoa</label>

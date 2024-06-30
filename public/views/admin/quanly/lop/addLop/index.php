@@ -14,7 +14,7 @@
 </head>
 <body>
     <?php
-        include(ROOT_PATH.CORE_PATH.'MySQL.php');
+        include_once($_SERVER['DOCUMENT_ROOT'].'/cnpm/app/config/path.php');
         $importAuthen = new Import('authen');
 
         if(IsAuthen::isAuthen()){
@@ -47,14 +47,9 @@
                 
 
                 <div class="container-fluid me-4 border rounded p-1">
-                    <div class=" row bg-white border-bottom m-0 pb-1">
-                        <div class="col">
-                            <h4 class="m-0 font-family-poppins font-bold-">Quản lý khoa </h4>
-                            <p class="text-gray-light fs-14 m-0">Danh sách khoa</p>
-                        </div>
-                        <div class="col d-flex justify-content-end">
-                            <img src="/cnpm/app/public/media/add-btn.svg" alt="" style="width: 33px;" onclick="window.location.href='<?php echo PAGE_PATH; ?>admin/quanly/khoa/addkhoa';">
-                        </div>
+                    <div class="bg-white border-bottom m-0 pb-1">
+                        <h4 class="m-0 font-family-poppins font-bold-">Quản lý lớp </h4>
+                        <p class="text-gray-light fs-14 m-0">Thêm kớp</p>
                     </div>
                     
                     <div class="container-fruid pt-1">
@@ -62,61 +57,64 @@
 
                             <div class="col pe-2">
                                 <h5 class="font-family-poppins font-semibold- fs-16"></h5>
-                                <p class="text-gray-light fs-14">Bảng danh sách</p>
+                                <p class="text-gray-light fs-14">Form thêm lớp.</p>
                             </div>
                             <div class="col-10 pb-0">
                                 
                                 <!-- form -->
-                                <form action="<?php echo CONTROLLERS_PATH?>khoaManager.php" method="post" enctype="multipart/form-data">
-                                    <div class="row mb-2">
+                                <form action="<?php echo CONTROLLERS_PATH?>/quanly/lopmanager/addLop.php" method="post" enctype="multipart/form-data">
+                                    <div class="row ">
+                                        <div class="col">
+                                            <label for="lop" class="font-semibold- fs-16">Tên Lớp</label>
+                                            <input type="text" id="lop" name ="lop"  placeholder="Tên lớp" class="form-control px-10px mb-10px">
+                                        </div>
+
+                                        <div class="col">
+                                            <label for="maLop" class="font-semibold- fs-16">Mã Lớp</label>
+                                            <input type="text" id="maLop" name ="maLop"  placeholder="Mã Lớp" class="form-control px-10px mb-10px">
+                                        </div>
+
                                         
-                                    <table class="table me-2">
-                                        <thead>
-                                            <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">First</th>
-                                            <th scope="col">Last</th>
-                                            <th scope="col">Handle</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
+                                        
+                                    </div>
 
+                                    <div class="col mb-2">
+                                        <label for="maLop" class="font-semibold- fs-16 ">Mã Lớp</label>
+                                       
+                                        
+                                        <select name="inputKhoa" id="inputKhoa" class="form-select w-50" aria-label="Floating label select example">
+                                            <option value="" selected>Chọn Khoa</option>
                                             <?php
-                                                include(ROOT_PATH. CONTROLLERS_PATH. 'quanly/khoamanager/getListKhoa.php');
-                                                $result = getListKhoa();
+                                            include(ROOT_PATH. CONTROLLERS_PATH. 'quanly/khoamanager/getListKhoa.php');
+                                            $result = getListKhoa();
+                                            foreach ($result as $index => $row) {
+                                                $khoa_id = $row['khoa_id'];
+                                                $khoa = $row['khoa'];
+                                                $maKhoa = $row['maKhoa'];
 
-                                                foreach ($result as $index => $row) {
-                                                    $khoa_id = $row['khoa_id'];
-                                                    $khoa = $row['khoa'];
-                                                    $maKhoa = $row['maKhoa'];
+                                                echo '<option value="' . $maKhoa . '">' .$maKhoa .' - '. $khoa . '</option>';
+                                            }
 
-                                                    echo '
-                                                    <tr>
-                                                        <th scope="row">'.$index.'</th>
-                                                        <td>'.$khoa_id.'</td>
-                                                        <td>'.$khoa.'</td>
-                                                        <td>'.$maKhoa.'</td>
-
-                                                    </tr>
-                                                    
-                                                    ';
-                                                }
-                                                
-                                            
                                             ?>
 
-
-                                            
-                                        </tbody>
-                                        </table>
-
+                                        </select>
                                     </div>
 
                                     <!--  -->
 
                                     <!--  -->
                                 
-                                    
+                                    <div class="container bg-white border-top m-0 pt-1">
+                                        <div class="row">
+                                            <div class="col d-flex justify-content-end">
+                                              <!-- Thẻ div chứa button và được căn phải -->
+                                              <div>
+                                                  <button class="btn btn-gray" type="submit">Thêm Lớp</button>
+                                                
+                                              </div>
+                                            </div>
+                                          </div>
+                                    </div>
                                     
                                 </form>
                                 <!-- form -->

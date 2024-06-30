@@ -49,11 +49,11 @@
                 <div class="container-fluid me-4 border rounded p-1">
                     <div class=" row bg-white border-bottom m-0 pb-1">
                         <div class="col">
-                            <h4 class="m-0 font-family-poppins font-bold-">Quản lý khoa </h4>
-                            <p class="text-gray-light fs-14 m-0">Danh sách khoa</p>
+                            <h4 class="m-0 font-family-poppins font-bold-">Quản lý lớp </h4>
+                            <p class="text-gray-light fs-14 m-0">Danh sách lớp</p>
                         </div>
                         <div class="col d-flex justify-content-end">
-                            <img src="/cnpm/app/public/media/add-btn.svg" alt="" style="width: 33px;" onclick="window.location.href='<?php echo PAGE_PATH; ?>admin/quanly/khoa/addkhoa';">
+                            <img src="/cnpm/app/public/media/add-btn.svg" alt="" style="width: 33px;" onclick="window.location.href='<?php echo PAGE_PATH; ?>admin/quanly/lop/addLop';">
                         </div>
                     </div>
                     
@@ -77,25 +77,29 @@
                                             <th scope="col">First</th>
                                             <th scope="col">Last</th>
                                             <th scope="col">Handle</th>
+                                            <th scope="col">Handle</th>
                                             </tr>
                                         </thead>
                                         <tbody>
 
                                             <?php
-                                                include(ROOT_PATH. CONTROLLERS_PATH. 'quanly/khoamanager/getListKhoa.php');
+                                                include(ROOT_PATH. CONTROLLERS_PATH. 'quanly/lopmanager/getListLop.php');
                                                 $result = getListKhoa();
 
                                                 foreach ($result as $index => $row) {
-                                                    $khoa_id = $row['khoa_id'];
-                                                    $khoa = $row['khoa'];
+                                                    $lop_id = $row['lop_id'];
+                                                    $lop = $row['lop'];
+                                                    $maLop = $row['maLop'];
                                                     $maKhoa = $row['maKhoa'];
+                                                    $tenLop = $row['tenLop'];
 
                                                     echo '
                                                     <tr>
                                                         <th scope="row">'.$index.'</th>
-                                                        <td>'.$khoa_id.'</td>
-                                                        <td>'.$khoa.'</td>
-                                                        <td>'.$maKhoa.'</td>
+                                                        <td>'.$lop_id.'</td>
+                                                        <td>'.$lop.'</td>
+                                                        <td>'.$maLop.'</td>
+                                                        <td>'.$tenLop.'</td>
 
                                                     </tr>
                                                     
@@ -116,7 +120,7 @@
 
                                     <!--  -->
                                 
-                                    
+                                
                                     
                                 </form>
                                 <!-- form -->

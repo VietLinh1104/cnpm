@@ -7,7 +7,7 @@
     <nav class="navbar navbar-expand-lg navbar-white px-1 mb-2">
         <div class="container-fluid p-0">
             <a href="#" class="navbar-brand m-0 d-flex align-items-center">
-                <img src="" style="width: 180px" alt="logo">
+                <img src="<?php echo MEDIA_PATH; ?>/logo.svg" style="width: 180px" alt="logo">
             </a> 
         </div>
         
@@ -21,7 +21,7 @@
             $role = $_SESSION['roleUser'];
             switch ($role) {
                 case "QL":
-                    $list = array('Trang chủ'=>'home','Quản lý khoa'=>'quanly/khoa/listkhoa', 'Quản lý lớp'=>'lopManager', 'Quản lý môn học'=>'monManeger');
+                    $list = array('Trang chủ'=>'home','Quản lý khoa'=>'quanly/khoa/listkhoa', 'Quản lý lớp'=>'quanly/lop/listLop', 'Quản lý môn học'=>'monManeger');
                   break;
                 case "GV":
                     $list = array('Trang chủ'=>'home','Điểm danh'=>'diemDanh', 'Đánh giá rèn luyện'=>'renluyen', 'Quản lý sinh viên'=>'svManager');
