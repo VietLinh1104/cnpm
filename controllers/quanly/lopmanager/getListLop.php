@@ -12,18 +12,23 @@
                 $table = 'lop';
     
                 $result = $dbHandler->getAllData($table);
-    
-                foreach ($result as $row) {
-                    $rowData = [];
-                    foreach ($row as $column => $value) {
-                        $rowData[$column] = $value;
+
+                if (!empty($result)) {
+                    foreach ($result as $row) {
+                        $rowData = [];
+                        foreach ($row as $column => $value) {
+                            $rowData[$column] = $value;
+                        }
+                        $twoDimensionalArray[] = $rowData;
                     }
-                    $twoDimensionalArray[] = $rowData;
+
+                    return  $twoDimensionalArray;
+                } else {
+                    echo 'Không tìm thấy dữ liệu phù hợp.';
                 }
                 
                 // Hiển thị mảng hai chiều
-                
-                return $twoDimensionalArray;
+
                 
                 
                 

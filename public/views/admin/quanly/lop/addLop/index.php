@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Mykingdom</title>
+    <title>UTT QLSV</title>
     <link rel="apple-touch-icon" href="https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_180,h_180/https://linhkienbandan.com/wp-content/uploads/2015/03/cropped-favicon-1.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="<?php echo STYLES_PATH.'sass.css'; ?>">
@@ -85,14 +85,20 @@
                                         <select name="inputKhoa" id="inputKhoa" class="form-select w-50" aria-label="Floating label select example">
                                             <option value="" selected>Chọn Khoa</option>
                                             <?php
-                                            include(ROOT_PATH. CONTROLLERS_PATH. 'quanly/khoamanager/getListKhoa.php');
-                                            $result = getListKhoa();
-                                            foreach ($result as $index => $row) {
-                                                $khoa_id = $row['khoa_id'];
-                                                $khoa = $row['khoa'];
-                                                $maKhoa = $row['maKhoa'];
+                                            include(ROOT_PATH. CONTROLLERS_PATH. 'getList.php');
+                                            $result = getList('khoa');
 
-                                                echo '<option value="' . $maKhoa . '">' .$maKhoa .' - '. $khoa . '</option>';
+                                            if(!empty($result)){
+                                                foreach ($result as $index => $row) {
+                                                    $khoa_id = $row['khoa_id'];
+                                                    $khoa = $row['khoa'];
+                                                    $maKhoa = $row['maKhoa'];
+    
+                                                    echo '<option value="' . $maKhoa . '">' .$maKhoa .' - '. $khoa . '</option>';
+                                                }
+
+                                            }else{
+                                                echo '<option value="">Chưa có Khoa</option>';
                                             }
 
                                             ?>

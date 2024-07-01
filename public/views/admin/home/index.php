@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Mykingdom</title>
+    <title>UTT QLSV</title>
     <link rel="apple-touch-icon" href="https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_180,h_180/https://linhkienbandan.com/wp-content/uploads/2015/03/cropped-favicon-1.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="<?php echo STYLES_PATH.'sass.css'; ?>">
@@ -47,20 +47,34 @@
                                 
                                 <!-- form -->
                                 <?php
-                                    
-                                include(ROOT_PATH . CONTROLLERS_PATH.'getDataHome.php');
 
-                                $data = getDataHome();
+                                new Import('authen');
+
+                                if(IsAuthen::isAuthen()){
+                                    // pass
+                                }else{
+                                    header('Location:'.PAGE_PATH.'admin/login');
+                                }
+
+                                $id = $_SESSION['user_id'];
+                                $dbHandler = new MySQL(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+                                $usersData = $dbHandler->getDataByField('users', 'user_id', $id);
+                                $names = array_column($usersData, 'fullname');
+                                    echo '
+                                        <div class="row mb-3">
+                                            <div class="col">
+                                                <label for="name" class="font-family-poppins">Account </label>
+                                                <h3 id="name" class="font-family-poppins font-bold-">Hi '.ucwords($names['0']).' !</h3>
+                                            </div>
+                                        </div>
+                                    ';
+
+                                    // print_r($names);
+                    
                                 
-
                                 ?>
                                 
-                                <div class="row mb-3">
-                                    <div class="col">
-                                        <label for="name" class="font-family-poppins">Account :</label>
-                                        <h3 id="name" class="font-family-poppins font-bold-"><?php echo 'Hi '.ucwords($data).' !'; ?></h3>
-                                    </div>
-                                </div>
+                                
 
                             
                                 <!--  -->

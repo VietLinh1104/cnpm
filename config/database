@@ -36,3 +36,11 @@ CREATE TABLE lop(
     FOREIGN KEY (maKhoa) REFERENCES khoa(maKhoa)
 );
 
+CREATE TABLE mon(
+    mon_id VARCHAR(225) PRIMARY KEY,
+    maMon VARCHAR(10),
+    maKhoa VARCHAR(10),
+    tenMon VARCHAR(20),
+    FOREIGN KEY (maKhoa) REFERENCES khoa(maKhoa)
+);
+

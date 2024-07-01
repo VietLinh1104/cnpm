@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Mykingdom</title>
+    <title>UTT QLSV</title>
     <link rel="apple-touch-icon" href="https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_180,h_180/https://linhkienbandan.com/wp-content/uploads/2015/03/cropped-favicon-1.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="<?php echo STYLES_PATH.'sass.css'; ?>">
@@ -74,37 +74,44 @@
                                         <thead>
                                             <tr>
                                             <th scope="col">#</th>
-                                            <th scope="col">First</th>
-                                            <th scope="col">Last</th>
-                                            <th scope="col">Handle</th>
-                                            <th scope="col">Handle</th>
+                                            <th scope="col">ID</th>
+                                            <th scope="col">Số Lớp</th>
+                                            <th scope="col">Mã Lớp</th>
+                                            <th scope="col">Tên Lớp</th>
                                             </tr>
                                         </thead>
                                         <tbody>
 
                                             <?php
-                                                include(ROOT_PATH. CONTROLLERS_PATH. 'quanly/lopmanager/getListLop.php');
-                                                $result = getListKhoa();
+                                                include(ROOT_PATH. CONTROLLERS_PATH. 'getList.php');
+                                                $result = getList('lop');
 
-                                                foreach ($result as $index => $row) {
-                                                    $lop_id = $row['lop_id'];
-                                                    $lop = $row['lop'];
-                                                    $maLop = $row['maLop'];
-                                                    $maKhoa = $row['maKhoa'];
-                                                    $tenLop = $row['tenLop'];
+                                                if(!empty($result)){
 
-                                                    echo '
-                                                    <tr>
-                                                        <th scope="row">'.$index.'</th>
-                                                        <td>'.$lop_id.'</td>
-                                                        <td>'.$lop.'</td>
-                                                        <td>'.$maLop.'</td>
-                                                        <td>'.$tenLop.'</td>
-
-                                                    </tr>
+                                                    foreach ($result as $index => $row) {
+                                                        $lop_id = $row['lop_id'];
+                                                        $lop = $row['lop'];
+                                                        $maLop = $row['maLop'];
+                                                        $maKhoa = $row['maKhoa'];
+                                                        $tenLop = $row['tenLop'];
+    
+                                                        echo '
+                                                        <tr>
+                                                            <th scope="row">'.$index.'</th>
+                                                            <td>'.$lop_id.'</td>
+                                                            <td>'.$lop.'</td>
+                                                            <td>'.$maLop.'</td>
+                                                            <td>'.$tenLop.'</td>
+    
+                                                        </tr>
+                                                        
+                                                        ';
+                                                    }
+                                                }else{
                                                     
-                                                    ';
+                                                    echo 'Không có dữ liệu';
                                                 }
+
                                                 
                                             
                                             ?>

@@ -21,7 +21,7 @@
             $role = $_SESSION['roleUser'];
             switch ($role) {
                 case "QL":
-                    $list = array('Trang chủ'=>'home','Quản lý khoa'=>'quanly/khoa/listkhoa', 'Quản lý lớp'=>'quanly/lop/listLop', 'Quản lý môn học'=>'monManeger');
+                    $list = array('Trang chủ'=>'home','Quản lý khoa'=>'quanly/khoa/listkhoa', 'Quản lý lớp'=>'quanly/lop/listLop', 'Quản lý môn học'=>'quanly/mon/listMon');
                   break;
                 case "GV":
                     $list = array('Trang chủ'=>'home','Điểm danh'=>'diemDanh', 'Đánh giá rèn luyện'=>'renluyen', 'Quản lý sinh viên'=>'svManager');

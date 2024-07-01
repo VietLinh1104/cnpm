@@ -49,11 +49,11 @@
                 <div class="container-fluid me-4 border rounded p-1">
                     <div class=" row bg-white border-bottom m-0 pb-1">
                         <div class="col">
-                            <h4 class="m-0 font-family-poppins font-bold-">Quản lý khoa </h4>
-                            <p class="text-gray-light fs-14 m-0">Danh sách khoa</p>
+                            <h4 class="m-0 font-family-poppins font-bold-">Quản lý Môn </h4>
+                            <p class="text-gray-light fs-14 m-0">Danh sách Môn</p>
                         </div>
                         <div class="col d-flex justify-content-end">
-                            <img src="/cnpm/app/public/media/add-btn.svg" alt="" style="width: 33px;" onclick="window.location.href='<?php echo PAGE_PATH; ?>admin/quanly/khoa/addkhoa';">
+                            <img src="/cnpm/app/public/media/add-btn.svg" alt="" style="width: 33px;" onclick="window.location.href='<?php echo PAGE_PATH; ?>admin/quanly/mon/addMon';">
                         </div>
                     </div>
                     
@@ -75,33 +75,41 @@
                                             <tr>
                                             <th scope="col">#</th>
                                             <th scope="col">ID</th>
-                                            <th scope="col">Tên Khoa</th>
+                                            <th scope="col">Mã Môn</th>
                                             <th scope="col">Mã Khoa</th>
+                                            <th scope="col">Tên Môn</th>
                                             </tr>
                                         </thead>
                                         <tbody>
 
                                             <?php
-                                                include(ROOT_PATH. CONTROLLERS_PATH. 'quanly/khoamanager/getListKhoa.php');
-                                                $result = getListKhoa();
+                                                include(ROOT_PATH. CONTROLLERS_PATH. 'getList.php');
+                                                $result = getList('mon');
 
-                                                foreach ($result as $index => $row) {
-                                                    $khoa_id = $row['khoa_id'];
-                                                    $khoa = $row['khoa'];
-                                                    $maKhoa = $row['maKhoa'];
-
-                                                    echo '
-                                                    <tr>
-                                                        <th scope="row">'.$index.'</th>
-                                                        <td>'.$khoa_id.'</td>
-                                                        <td>'.$khoa.'</td>
-                                                        <td>'.$maKhoa.'</td>
-
-                                                    </tr>
-                                                    
-                                                    ';
+                                                if(!empty($result)){
+                                                    foreach ($result as $index => $row) {
+                                                        $mon_id = $row['mon_id'];
+                                                        $maMon = $row['maMon'];
+                                                        $maKhoa = $row['maKhoa'];
+                                                        $mon = $row['tenMon'];
+                                                   
+    
+                                                        echo '
+                                                        <tr>
+                                                            <th scope="row">'.$index.'</th>
+                                                            <td>'.$mon_id.'</td>
+                                                            <td>'.$maMon.'</td>
+                                                            <td>'.$maKhoa.'</td>
+                                                            <td>'.$mon.'</td>
+    
+                                                        </tr>
+                                                        
+                                                        ';
+                                                    }
+                                                }else{
+                                                    echo 'Chưa có dữ liệu.';
                                                 }
-                                                
+
                                             
                                             ?>
 
@@ -116,7 +124,7 @@
 
                                     <!--  -->
                                 
-                                    
+                                
                                     
                                 </form>
                                 <!-- form -->

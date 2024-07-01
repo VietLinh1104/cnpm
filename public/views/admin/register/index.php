@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Mykingdom</title>
+    <title>UTT QLSV</title>
     <link rel="apple-touch-icon" href="https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_180,h_180/https://linhkienbandan.com/wp-content/uploads/2015/03/cropped-favicon-1.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="<?php echo STYLES_PATH.'sass.css'; ?>">
@@ -35,13 +35,13 @@
             <!-- container -->
             <div class="container-lg">
                 <h1 class="mt-2 mb-0 font-bold- font-family-condensed">MANAGER</h1>
-                <p class="font-semibold- font-family-poppins mb-2">Add Item</p>
+                <p class="font-semibold- font-family-poppins mb-2">Trang quản lý</p>
                 
 
                 <div class="container-fluid me-4 border rounded p-1">
                     <div class="bg-white border-bottom m-0 pb-1">
-                        <h4 class="m-0 font-family-poppins font-bold-">ADD ITEM </h4>
-                        <p class="text-gray-light fs-14 m-0">Phần thêm sản phẩm.</p>
+                        <h4 class="m-0 font-family-poppins font-bold-">Trang đăng ký </h4>
+                        <p class="text-gray-light fs-14 m-0">Đăng ký tài khoản.</p>
                     </div>
                     
                     <div class="container-fruid pt-1">

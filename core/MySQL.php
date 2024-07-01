@@ -72,10 +72,15 @@ class MySQL {
             $sql = "SELECT * FROM $table WHERE $field = ?";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute([$value]);
-
+    
             // Lấy dữ liệu
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+    
+            // Nếu không có kết quả nào, trả về một mảng rỗng
+            if ($result === false) {
+                return [];
+            }
+    
             return $result;
         } catch(PDOException $e) {
             throw new PDOException("Query failed: " . $e->getMessage());

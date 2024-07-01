@@ -18,6 +18,14 @@
         $importAuthen = new Import('authen');
 
         if(IsAuthen::isAuthen()){
+            $role = $_SESSION['roleUser'];
+            if($role == 'QL'){
+                //pass
+            }else{
+                header("Location: /cnpm/app/public/views/admin/access");
+            }
+
+        }else{
             header("Location: /cnpm/app/public/views/admin/home");
         }
     ?>
@@ -40,34 +48,66 @@
 
                 <div class="container-fluid me-4 border rounded p-1">
                     <div class="bg-white border-bottom m-0 pb-1">
-                        <h4 class="m-0 font-family-poppins font-bold-">Đăng Nhập </h4>
-                        <p class="text-gray-light fs-14 m-0">Form đăng nhập.</p>
+                        <h4 class="m-0 font-family-poppins font-bold-">Quản lý Môn </h4>
+                        <p class="text-gray-light fs-14 m-0">Thêm Môn</p>
                     </div>
                     
                     <div class="container-fruid pt-1">
                         <div class="row">
 
                             <div class="col pe-2">
-                                <h5 class="font-family-poppins font-semibold- fs-16">Form đăng nhập</h5>
-                                <p class="text-gray-light fs-14">Đăng nhập tài khoản.</p>
+                                <h5 class="font-family-poppins font-semibold- fs-16"></h5>
+                                <p class="text-gray-light fs-14">Form thêm Môn.</p>
                             </div>
                             <div class="col-10 pb-0">
                                 
                                 <!-- form -->
-                                <form action="<?php echo CONTROLLERS_PATH?>loginProcesser.php" method="post" enctype="multipart/form-data">
-                                    <div class="row mb-3">
+                                <form action="<?php echo CONTROLLERS_PATH?>/quanly/monmanager/addMon.php" method="post" enctype="multipart/form-data">
+                                    <div class="row ">
                                         <div class="col">
-                                            <label for="username" class="font-semibold- fs-16">Username</label>
-                                            <input type="text" id="username" name ="username"  placeholder="Your Username" class="form-control px-10px mb-10px">
+                                            <label for="mon" class="font-semibold- fs-16">Tên Môn</label>
+                                            <input type="text" id="mon" name ="mon"  placeholder="Tên Môn" class="form-control px-10px mb-10px">
                                         </div>
 
                                         <div class="col">
-                                            <label for="password" class="font-semibold- fs-16">Password</label>
-                                            <input type="password" id="password" name ="password"  placeholder="Your Password" class="form-control px-10px mb-10px">
+                                            <label for="maMon" class="font-semibold- fs-16">Mã Môn</label>
+                                            <input type="text" id="maMon" name ="maMon"  placeholder="Mã Môn" class="form-control px-10px mb-10px">
                                         </div>
+
+                                        
+                                        
                                     </div>
 
-                                
+                                    <div class="col mb-2">
+                                        <label for="inputKhoa" class="font-semibold- fs-16 ">Mã Khoa</label>
+                                       
+                                        
+                                        <select name="inputKhoa" id="inputKhoa" class="form-select w-50" aria-label="Floating label select example">
+                                            <option value="" selected>Chọn Khoa</option>
+                                            <?php
+                                            include(ROOT_PATH. CONTROLLERS_PATH. 'getList.php');
+                                            $result = getList('khoa');
+                                            
+                                            if(!empty($result)){
+                                                foreach ($result as $index => $row) {
+                                                    $khoa_id = $row['khoa_id'];
+                                                    $khoa = $row['khoa'];
+                                                    $maKhoa = $row['maKhoa'];
+    
+                                                    echo '<option value="' . $maKhoa . '">' .$maKhoa .' - '. $khoa . '</option>';
+                                                }
+
+                                            }else{
+                                                echo '<option value="">Chưa có Khoa</option>';
+                                            }
+
+                                            ?>
+
+                                        </select>
+                                    </div>
+
+                                    <!--  -->
+
                                     <!--  -->
                                 
                                     <div class="container bg-white border-top m-0 pt-1">
@@ -75,7 +115,7 @@
                                             <div class="col d-flex justify-content-end">
                                               <!-- Thẻ div chứa button và được căn phải -->
                                               <div>
-                                                  <button class="btn btn-gray" type="submit">Login</button>
+                                                  <button class="btn btn-gray" type="submit">Thêm Môn</button>
                                                 
                                               </div>
                                             </div>
